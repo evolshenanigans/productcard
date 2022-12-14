@@ -1,38 +1,220 @@
-.App {
-  text-align: center;
+/* 
+### Primary
+
+- Dark cyan: hsl(158, 36%, 37%)
+- Cream: hsl(30, 38%, 92%)
+
+### Neutral
+
+- Very dark blue: hsl(212, 21%, 14%)
+- Dark grayish blue: hsl(228, 12%, 48%)
+- White: hsl(0, 0%, 100%)
+
+## Typography
+
+### Body Copy
+
+- Font size (paragraph): 14px
+
+### Font
+
+- Family: [Montserrat](https://fonts.google.com/specimen/Montserrat)
+- Weights: 500, 700
+
+- Family: [Fraunces](https://fonts.google.com/specimen/Fraunces)
+- Weights: 700 */
+
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Montserrat:wght@500;600;700&display=swap");
+
+:root {
+  --Dark-Blue: hsl(212, 21%, 14%);
+  --Btn-Hover: hsl(217, 38%, 24%);
+  --Very-Dark-Blue: hsl(212, 21%, 14%);
+  --Dark-Grayish-Blue: hsl(228, 12%, 48%);
+  --Sky-Blue: hsl(216, 82%, 94%);
+  --White: hsl(0, 0%, 100%);
+  --Dark-Cyan: hsl(158, 36%, 37%);
+  --Cream: hsl(30, 38%, 92%);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+img,
+picture,
+svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
 }
 
-.App-header {
-  background-color: #282c34;
+p,
+h1 {
+  overflow-wrap: break-word;
+}
+
+button,
+select {
+  font: inherit;
+  border: none;
+  background: none;
+}
+
+body {
   min-height: 100vh;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  background: var(--Cream);
 }
 
-.App-link {
-  color: #61dafb;
+/* ******************** */
+/* CARD LAYOUT */
+/* ******************** */
+
+article {
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  overflow: hidden;
+  background: var(--White);
+  transition: 0.7s ease;
+  font-family: "Montserrat", sans-serif;
+  margin: 20px;
+  box-shadow: 0px 0px 15px 5px rgba(0, 0, 0, 0.1);
+  transition: 0.7s ease;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+article > * {
+  flex-basis: 50%;
 }
+
+/* ******************** */
+/* CARD LAYOUT IMG */
+/* ******************** */
+
+picture {
+  overflow: hidden;
+  transition: 0.7s ease;
+}
+
+
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: 0.7s ease;
+}
+
+/* ******************** */
+/* CARD LAYOUT TEXT */
+/* ******************** */
+
+.card-main-content {
+  padding: 20px;
+  transition: 0.7s ease;
+}
+
+.card-category {
+  font-size: 12px;
+  color: var(--Dark-Grayish-Blue);
+  letter-spacing: 4px;
+}
+
+.card-heading {
+  font-size: clamp(1.63rem, calc(1.34rem + 1.43vw), 1.88rem);
+  font-family: "Fraunces", serif;
+  color: var(--Very-Dark-Blue);
+  line-height: 1.25;
+  font-weight: 700;
+  margin-top: 14px;
+  margin-bottom: 8px;
+  transition: 0.7s ease;
+}
+
+.card-description {
+  font-size: clamp(0.75rem, calc(0.61rem + 0.71vw), 0.88rem);
+  line-height: 1.7;
+  color: var(--Dark-Grayish-Blue);
+  margin-bottom: 18px;
+  transition: 0.7s ease;
+}
+
+.card-price-container {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 18px;
+}
+
+.card-price-container p {
+  font-size: clamp(1.63rem, calc(1.34rem + 1.43vw), 1.88rem);
+  font-family: "Fraunces", serif;
+  color: var(--Dark-Cyan);
+  font-weight: 700;
+  margin-bottom: 0;
+  transition: 0.7s ease;
+}
+
+.card-price-container span {
+  text-decoration: line-through;
+  color: var(--Dark-Cyan);
+}
+.card-price-container del {
+  color: var(--Dark-Cyan);
+}
+
+.sr-only {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+button {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  text-align: center;
+  color: var(--White);
+  padding: 14px 32px;
+  border-radius: 10px;
+  background: var(--Dark-Cyan);
+  transition: 0.7s ease;
+  cursor: pointer;
+}
+
+button img {
+  width: 16px;
+}
+
+/* ******************** */
+/* MEDIA QUERY */
+/* ******************** */
+
+@media (min-width: 616px) {
+  article {
+    flex-direction: row;
+  }
+
+  .card-main-content {
+    padding: 30px;
+    transition: 0.7s ease;
+  }
+
+  .card-heading {
+    margin-top: 17px;
+    margin-bottom: 12px;
+  }
+
+  .card-description {
+    margin-bottom: 22px;
+  }
+} 
